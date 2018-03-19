@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="TypeScriptCode" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/../../../TypeScriptCode" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../TypeScriptCode" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

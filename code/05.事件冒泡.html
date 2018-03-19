@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="box">点击我啊</div>
+</body>
+
+<script>
+    
+    var EventUtils = {
+        addHandler: function (Element,type,Func) {
+            if (Element.addEventListener){
+                Element.addEventListener(type,Func,false);
+            }else if (Element.attachEvent) {
+                Element.attachEvent("on" + type,Func);
+            }else {
+                Element["on" + type] = Func
+            }
+        },
+        removeHandler: function (Element,type,Func) {
+            if (Element.removeEventListener) {
+                Element.removeEventListener(type,Func,false);
+            }else  if (Element.detachEvent) {
+                Element.detachEvent("on" + type,Func);
+            }else {
+                Element["on" + type] = null;
+            }
+        }
+    }
+
+    var box = document.getElementById('box');
+    EventUtils.addHandler(box,'click',function () {
+        console.log("box");
+    });
+
+    function dom2() {
+        var body = document.body;
+        var box = document.getElementById('box');
+//    box.onclick = function () {
+////        console.log("box");
+//    };
+
+        body.addEventListener('click',function () {
+            console.log('body2');
+        },true);
+        box.addEventListener('click',function () {
+            console.log('bx');
+        },false);
+    };
+
+
+    function maopao() {
+
+        var box = document.getElementById('box');
+        box.onclick = function () {
+            console.log("box");
+        };
+        var body = document.body;
+        body.onclick = function () {
+            console.log("body");
+        };
+        var html = document.documentElement;
+        html.onclick = function () {
+            console.log("html");
+        };
+        document.onclick = function () {
+            console.log("doc");
+        };
+        window.onclick = function () {
+            console.log('window');
+        };
+    };
+
+</script>
+</html>
